@@ -1,0 +1,10 @@
+streamlit
+scikit-learn
+numpy
+pandas
+matplotlib
+joblib
+pillow
+tensorflow
+pickle
+PIL
