@@ -8,13 +8,13 @@ heart_data = pd.read_csv(r"D:\project_files\Models\heart_disease_data.csv")
 parkinson_data = pd.read_csv(r"D:\project_files\Models\parkinson_data.csv")
 
 # Load Models
-with open(r"D:\project_files\Models\diabetes_model.sav", 'rb') as f:
+with open("project_files/Models/diabetes_model.sav", 'rb') as f:
     diabetes_model = pickle.load(f)
-with open(r"D:\project_files\Models\heart_disease_model.sav", 'rb') as f:
+with open("project_files/Models/heart_disease_model.sav", 'rb') as f:
     heart_model = pickle.load(f)
-with open(r"D:\project_files\Models\lungs_disease_model.sav", 'rb') as f:
+with open("project_files/Models/lungs_disease_model.sav", 'rb') as f:
     lungs_model = pickle.load(f)
-with open(r"D:\project_files\Models\parkinsons_model.sav", 'rb') as f:
+with open("project_files/Models/parkinsons_model.sav", 'rb') as f:
     parkinson_model = pickle.load(f)
 
 # Streamlit Configuration
