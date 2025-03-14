@@ -2,11 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-# Load Data
-diabetes_data = pd.read_csv("D:/project_files/Models/diabetes_data.csv")
-heart_data = pd.read_csv(r"D:\project_files\Models\heart_disease_data.csv")
-parkinson_data = pd.read_csv(r"D:\project_files\Models\parkinson_data.csv")
-
 # Load Models
 with open("project_files/Models/diabetes_model.sav", 'rb') as f:
     diabetes_model = pickle.load(f)
