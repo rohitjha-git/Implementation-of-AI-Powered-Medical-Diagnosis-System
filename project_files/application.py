@@ -35,7 +35,7 @@ selectbox_style = """
         background-color: #f9f9f9 !important;
     }
     div[data-baseweb="select"] * {
-        color: White !important;
+        color: Black !important;
     }
 </style>
 """
