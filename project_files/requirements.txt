@@ -5,6 +5,4 @@ pandas
 matplotlib
 joblib
 pillow
-tensorflow
-pickle
-PIL
+tensorflow==2.16.1
