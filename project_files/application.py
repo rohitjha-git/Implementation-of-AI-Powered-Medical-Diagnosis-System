@@ -158,14 +158,19 @@ def predict_lung_disease():
 
 def predict_parkinsons():
     st.subheader("Parkinson's Diagnosis")
+    
+    # Extract input feature columns (excluding 'name' and 'status')
+    parkinson_columns = parkinson_data.drop(['name', 'status'], axis=1).columns.tolist()
+    
     input_values = []
-    for col in parkinson_data.columns[1:23]:  # Taking first 22 features for model compatibility
+    for col in parkinson_columns:
         value = st.number_input(f"{col.replace('_', ' ').title()}")
         input_values.append(value)
     
     if st.button("Predict Parkinson's"):
         result = parkinson_model.predict([input_values])
-        st.write("Result:", "Positive" if result[0] == 0 else "Negative")
+        st.write("Result:", "Positive" if result[0] == 1 else "Negative")
+
 
 # Disease Diagnosis Routes
 if option == "Diabetes":
