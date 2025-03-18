@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 import pickle
 
+
+@st.cache_data
+def load_parkinson_data():
+    return pd.read_csv('project_files/Data/parkinson_data.csv')
+
+parkinson_data = load_parkinson_data()
+
 # Load Models
 with open("project_files/Models/diabetes_model.sav", 'rb') as f:
     diabetes_model = pickle.load(f)
@@ -157,19 +164,21 @@ def predict_lung_disease():
         st.write("Result:", "Positive" if result[0] == 1 else "Negative")
 
 def predict_parkinsons():
-    st.subheader("Parkinson's Diagnosis")
-    
+    st.subheader("Parkinson's Disease Diagnosis")
+
     # Extract input feature columns (excluding 'name' and 'status')
     parkinson_columns = parkinson_data.drop(['name', 'status'], axis=1).columns.tolist()
-    
-    input_values = []
+
+    inputs = {}
     for col in parkinson_columns:
-        value = st.number_input(f"{col.replace('_', ' ').title()}")
-        input_values.append(value)
+        if parkinson_data[col].dtype in ['float64', 'int64']:
+            inputs[col] = st.number_input(f"{col.replace('_', ' ').title()}", value=0.0)
     
-    if st.button("Predict Parkinson's"):
+    if st.button("Predict Parkinson's Disease"):
+        input_values = [inputs[col] for col in parkinson_columns]
         result = parkinson_model.predict([input_values])
         st.write("Result:", "Positive" if result[0] == 1 else "Negative")
+
 
 
 # Disease Diagnosis Routes
