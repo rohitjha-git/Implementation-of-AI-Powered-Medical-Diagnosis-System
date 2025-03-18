@@ -179,6 +179,7 @@ elif option == "Heart Disease":
     predict_heart_disease()
 elif option == "Lung Disease":
     predict_lung_disease()
-elif option == "Parkinson's":
+elif option == "Parkinson's Disease":
     predict_parkinsons()
+
 
