@@ -5,7 +5,7 @@ import pickle
 
 @st.cache_data
 def load_parkinson_data():
-    return pd.read_csv('project_files/Data/parkinson_data.csv')
+    return pd.read_csv('project_files/dataset/parkinson_data.csv')
 
 parkinson_data = load_parkinson_data()
 
